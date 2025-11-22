@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>In Loving Memory of Drew’s Youth (1975–2025)</title>
+  <meta name="description" content="A memorial gathering for Andrew Nielson on the occasion of his fiftieth year." />
+
+  <!-- Fonts: elegant script for the title + classic serif for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --bg-soft:#0f0f0f;
+      --text:#f2f2f2;
+      --muted:#eaeaea;
+      --border:#ffffff;
+      --max-w:760px;        /* similar to your mockup proportions */
+      --line:1.5px;
+      --shadow:0 0 0.75rem rgba(0,0,0,.6), 0 0 2.5rem rgba(0,0,0,.7) inset;
+    }
+
+    /* Page background with a subtle “damask-ish” texture (pure CSS, no image) */
+    body{
+      margin:0;
+      min-height:100svh;
+      background:
+        radial-gradient(1200px 800px at 20% 0%, #111 0%, transparent 55%),
+        radial-gradient(1000px 700px at 120% 20%, #0c0c0c 0%, transparent 60%),
+        repeating-linear-gradient(145deg, #0b0b0b 0 30px, #0c0c0c 30px 60px),
+        var(--bg);
+      color:var(--text);
+      font-family: "Lora", serif;
+      display:grid;
+      place-items:center;
+      padding:24px;
+    }
+
+    /* Card that mimics a funeral program */
+    .program{
+      width:100%;
+      max-width:var(--max-w);
+      aspect-ratio: 3/4;          /* portrait feel; removes layout jump */
+      background: var(--bg-soft);
+      position:relative;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding: clamp(18px, 4vw, 36px);
+      isolation:isolate;
+      overflow:hidden;
+    }
+
+    /* VERY faint damask overlay (non-repeating, low-opacity) using your uploaded image as texture. 
+       If you prefer only pure CSS, delete this block. */
+    .program::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        url("/mnt/data/5946336c-b647-4b75-8f53-ab44a10027ce.png") center/cover no-repeat;
+      opacity:.06;                 /* faint */
+      mix-blend-mode: lighten;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    /* White border with small curled corner ornaments (CSS only) */
+    .program::after{
+      content:"";
+      position:absolute; inset:14px;
+      border: var(--line) solid var(--border);
+      border-radius: 6px;
+      pointer-events:none;
+    }
+    .corner{
+      position:absolute;
+      width:22px; height:22px;
+      border: var(--line) solid var(--border);
+      border-radius:4px;
+      pointer-events:none;
+    }
+    .corner.tl{ inset:8px auto auto 8px; border-right:none; border-bottom:none; border-radius:6px 0 0 0; transform:skew(-12deg, -12deg); }
+    .corner.tr{ inset:8px 8px auto auto; border-left:none;  border-bottom:none; border-radius:0 6px 0 0; transform:skew(12deg, -12deg); }
+    .corner.bl{ inset:auto auto 8px 8px; border-right:none; border-top:none;    border-radius:0 0 0 6px; transform:skew(12deg, 12deg); }
+    .corner.br{ inset:auto 8px 8px auto; border-left:none;  border-top:none;    border-radius:0 0 6px 0; transform:skew(-12deg, 12deg); }
+
+    /* Typography */
+    .title-script{
+      font-family:"Great Vibes", cursive;
+      font-weight:400;
+      letter-spacing:.02em;
+      font-size: clamp(36px, 7vw, 76px);
+      text-align:center;
+      margin: clamp(12px, 2.8vw, 20px) 0 0 0;
+    }
+    .subtitle{ 
+      text-align:center;
+      font-size: clamp(22px, 3.2vw, 34px);
+      margin: .2rem 0 0 0;
+      font-weight: 600;
+    }
+    .years{
+      text-align:center;
+      font-size: clamp(20px, 2.8vw, 28px);
+      margin-top:.25rem;
+      opacity:.95;
+    }
+    .section{
+      text-align:center;
+      margin: clamp(14px, 3.2vw, 26px) 0;
+    }
+    .line-divider{
+      display:flex; align-items:center; gap:16px;
+      margin: clamp(10px, 2.5vw, 18px) auto;
+      max-width: 520px;
+    }
+    .line-divider::before,
+    .line-divider::after{
+      content:"";
+      flex:1; height:0; border-top: var(--line) solid var(--border);
+      opacity:.95;
+    }
+    .fleur{
+      font-size: clamp(20px, 3.5vw, 34px);
+      line-height:1;
+      margin: 0 .25rem;
+      filter: drop-shadow(0 0 .02rem rgba(255,255,255,.25));
+    }
+    .details{
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      font-weight:700;
+      font-size: clamp(13px, 1.7vw, 18px);
+      line-height:1.6;
+    }
+    .note{
+      text-transform:none;
+      letter-spacing: .02em;
+      font-weight:600;
+      font-size: clamp(13px, 1.6vw, 16px);
+    }
+
+    /* A11y tweaks */
+    .visually-hidden{
+      position:absolute!important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); border:0;
+    }
+
+    /* Small screens: relax the fixed aspect so text has room */
+    @media (max-width: 430px){
+      .program{ aspect-ratio:auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="program" role="main" aria-labelledby="h1">
+    <span class="corner tl" aria-hidden="true"></span>
+    <span class="corner tr" aria-hidden="true"></span>
+    <span class="corner bl" aria-hidden="true"></span>
+    <span class="corner br" aria-hidden="true"></span>
+
+    <header class="section">
+      <h1 id="h1" class="title-script">In Loving Memory</h1>
+      <div class="subtitle">Of Drew’s Youth</div>
+      <div class="years">(1975 – 2025)</div>
+
+      <div class="line-divider" aria-hidden="true"><span class="fleur" role="img" aria-label="fleur-de-lis">⚜︎</span></div>
+
+      <p class="note" style="margin:0.25rem 0 0 0;">
+        A Memorial Gathering for<br />
+        <strong>Andrew Nielson</strong><br />
+        on the occasion of his Fiftieth Year
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="line-divider" aria-hidden="true"><span class="fleur" role="img" aria-label="fleur-de-lis">⚜︎</span></div>
+
+      <p class="details" aria-label="Service details">
+        Services to be held<br />
+        Friday, December 5, 2025<br />
+        7:30 in the Evening<br />
+      </p>
+    </section>
+
+    <footer class="section" aria-label="Notes">
+      <div class="line-divider" aria-hidden="true"><span class="fleur" role="img" aria-label="fleur-de-lis">⚜︎</span></div>
+
+      <p class="details">Guests are invited to share eulogies</p>
+      <p class="note">in honor of Andrew’s dearly departed youth</p>
+
+      <p class="details" style="margin-top:1rem;">Reception to Follow</p>
+      <p class="note">Somber attire encouraged</p>
+    </footer>
+
+    <!-- Hidden summary for screen readers -->
+    <p class="visually-hidden">
+      Invitation to a memorial-themed fiftieth birthday gathering for Andrew Nielson. 
+      Services Friday, December 5, 2025 at 7:30 PM at Brewer’s Alley, 124 N Market St, Frederick, MD. 
+      Guests may share eulogies. Reception to follow. Somber attire encouraged.
+    </p>
+  </main>
+</body>
+</html>
