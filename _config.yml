@@ -2,12 +2,11 @@
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
 # Site settings
-title: UMD Accessibility Testing Workshops
+title: Memorial Service for Drew's Youth
 description: >- # this means to ignore newlines until "baseurl:"
-  This site provides a home for test cases and sample website content to facilitate
-  accessibility testing workshops and homework hosted by the University of Maryland.
-baseurl: "/umdA11yWorkshops" # the subpath of your site, e.g. /blog
-url: "https://section508coordinators.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+  A simple website to host a temporary birthday party agenda and related info.
+baseurl: "/DrewGonnaDie" # the subpath of your site, e.g. /blog
+url: "https://drewnielson.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 # Build settings
@@ -38,20 +37,3 @@ exclude:
   - vendor/ruby/
   - gulpfile.js
   - LICENSE
-
-primary_navigation:
-  - name: Home
-    url: /
-  - name: Demo
-    url: /demo/
-  - name: Homework 1
-    url: /homework-1/
-  - name: Homework 2
-    url: /homework-2/
-
-collections:
-  testcases:
-    output: true
-    permalink: :collection/:name/
-  testfiles:
-    output: true
