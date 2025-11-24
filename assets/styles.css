@@ -46,7 +46,7 @@ td p{
 
 /* Card that mimics a funeral program */
 .program{
-    width:100%;
+    width:95%;
     max-width:var(--max-w);
     background: var(--bg-soft);
     position:relative;
