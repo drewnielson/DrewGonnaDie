@@ -1,0 +1,117 @@
+
+:root{
+    --bg:#0a0a0a;
+    --bg-soft:#0f0f0f;
+    --text:#f2f2f2;
+    --muted:#eaeaea;
+    --border:#ffffff;
+    --max-w:760px;        /* similar to your mockup proportions */
+    --line:1.5px;
+    --shadow:0 0 0.75rem rgba(0,0,0,.6), 0 0 2.5rem rgba(0,0,0,.7) inset;
+}
+
+/* Page background with a subtle “damask-ish” texture (pure CSS, no image) */
+body{
+    margin:0;
+    color:var(--text);
+    font-family: "Lora", serif;
+    display:grid;
+    place-items:center;
+    padding:24px;
+    background-image: url("images/damask.png");
+    background-repeat: repeat;
+    background-size: 240px; /* adjust for tighter or looser pattern */
+    background-color: #0b0b0b; /* fallback */
+}
+
+table{
+    border-collapse:collapse;
+    margin: auto;
+    text-align: left;
+}
+
+th, td{
+    vertical-align: top;
+    padding: 8px 12px;
+}
+
+/* Card that mimics a funeral program */
+.program{
+    width:100%;
+    max-width:var(--max-w);
+    aspect-ratio: 3/4;          /* portrait feel; removes layout jump */
+    background: var(--bg-soft);
+    position:relative;
+    box-shadow: var(--shadow);
+    display:flex;
+    flex-direction:column;
+    padding: clamp(18px, 4vw, 36px);
+    isolation:isolate;
+    overflow:hidden;
+}
+
+
+/* Typography */
+.title-script{
+    font-family:"Great Vibes", cursive;
+    font-weight:400;
+    letter-spacing:.02em;
+    font-size: clamp(36px, 7vw, 76px);
+    text-align:center;
+    margin: clamp(12px, 2.8vw, 20px) 0 0 0;
+}
+.subtitle{ 
+    text-align:center;
+    font-size: clamp(22px, 3.2vw, 34px);
+    margin: .2rem 0 0 0;
+    font-weight: 600;
+}
+.years{
+    text-align:center;
+    font-size: clamp(20px, 2.8vw, 28px);
+    margin-top:.25rem;
+    opacity:.95;
+}
+.section{
+    text-align:center;
+}
+.line-divider{
+    display:flex; align-items:center; gap:16px;
+    margin: clamp(10px, 2.5vw, 18px) auto;
+    max-width: 520px;
+}
+.line-divider::before,
+.line-divider::after{
+    content:"";
+    flex:1; height:0; border-top: var(--line) solid var(--border);
+    opacity:.95;
+}
+.fleur{
+    font-size: clamp(20px, 3.5vw, 34px);
+    line-height:1;
+    margin: 0 .25rem;
+    filter: drop-shadow(0 0 .02rem rgba(255,255,255,.25));
+}
+.details{
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    font-weight:700;
+    font-size: clamp(13px, 1.7vw, 18px);
+    line-height:1.6;
+}
+.note{
+    text-transform:none;
+    letter-spacing: .02em;
+    font-weight:600;
+    font-size: clamp(13px, 1.6vw, 16px);
+}
+
+/* A11y tweaks */
+.visually-hidden{
+    position:absolute!important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); border:0;
+}
+
+/* Small screens: relax the fixed aspect so text has room */
+@media (max-width: 430px){
+    .program{ aspect-ratio:auto; }
+}
