@@ -35,6 +35,14 @@ table{
     text-align: left;
 }
 
+th{
+    width: 30%;
+}
+
+td{
+    width: 70%;
+}
+
 th, td{
     vertical-align: top;
     padding: 8px 12px;
